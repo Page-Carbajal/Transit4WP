@@ -72,6 +72,11 @@
       </div>
    </div>
 </footer>
-<?php wp_footer(); ?>
+<?php wp_footer();
+$themeOptions = \Transit4WP\ThemeSetup::getOptions();
+if( $themeOptions->scriptsInFooter ){ ?>
+   <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="http://buquit.loc/media/themes/transit-for-wordpress/resources/"></script>
+<?php } ?>
+
 </body>
 </html>

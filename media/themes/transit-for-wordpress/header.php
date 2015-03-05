@@ -1,28 +1,27 @@
-<?php $replacePath = function(){ echo 'http://buquit.loc/media/themes/transit-for-wordpress/resources/'; } ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> style="margin-top: 0px!important;">
 <head>
    <title><?php the_title(); ?></title>
    <meta charset="UTF-8">
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <meta name="description" content="<?php the_excerpt(); ?>" />
-   <!--[if lte IE 8]><script src="<?php $replacePath(); ?>js/html5shiv.js"></script><![endif]-->
-   <script src="<?php $replacePath(); ?>js/jquery.min.js"></script>
-   <script src="<?php $replacePath(); ?>js/skel.min.js"></script>
-   <script src="<?php $replacePath(); ?>js/skel-layers.min.js"></script>
-   <script src="<?php $replacePath(); ?>js/init.js"></script>
+   <?php wp_head();
+   $themeOptions = \Transit4WP\ThemeSetup::getOptions();
+   if( !$themeOptions->scriptsInFooter ){ ?>
+      <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
+   <?php } ?>
+
    <noscript>
-      <link rel="stylesheet" href="<?php $replacePath(); ?>css/skel.css" />
-      <link rel="stylesheet" href="<?php $replacePath(); ?>css/style.css" />
-      <link rel="stylesheet" href="<?php $replacePath(); ?>css/style-xlarge.css" />
+      <link rel="stylesheet" href="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>css/skel.css" />
+      <link rel="stylesheet" href="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>css/style.css" />
+      <link rel="stylesheet" href="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>css/style-xlarge.css" />
    </noscript>
-   <?php wp_head(); ?>
 </head>
-<body class="<?php body_class( ( is_front_page() ? 'landing' : '' ) ); ?>">
+<body <?php body_class( ( is_front_page() ? 'landing' : '' ) ); ?>>
 
 <!-- Header -->
 <header id="header">
-   <h1><a href="<?php home_url(); ?>">Transit</a></h1>
+   <h1><a href="<?php home_url(); ?>"><?php the_title(); ?></a></h1>
    <nav id="nav">
       <ul>
          <li><a href="index.html">Home</a></li>

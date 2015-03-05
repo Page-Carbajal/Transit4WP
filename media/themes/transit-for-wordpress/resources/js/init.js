@@ -2,7 +2,11 @@
 	Transit by TEMPLATED
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+	Modified by Iaax Page to indicate the script mediapath. \o/
 */
+
+var skelInitScript = document.getElementById('skelInitScript');
+var mediapath = skelInitScript.getAttribute('data-mediapath') + '/css/';
 
 (function($) {
 
@@ -10,36 +14,36 @@
 		reset: 'full',
 		breakpoints: {
 			global: {
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style.css',
+				href: mediapath + 'style.css',
 				containers: 1400,
 				grid: { gutters: ['2em', 0] }
 			},
 			xlarge: {
 				media: '(max-width: 1680px)',
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style-xlarge.css',
+				href: mediapath + 'style-xlarge.css',
 				containers: 1200
 			},
 			large: {
 				media: '(max-width: 1280px)',
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style-large.css',
+				href: mediapath + 'style-large.css',
 				containers: 960,
 				grid: { gutters: ['1.5em', 0] },
 				viewport: { scalable: false }
 			},
 			medium: {
 				media: '(max-width: 980px)',
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style-medium.css',
+				href: mediapath + 'style-medium.css',
 				containers: '90%!'
 			},
 			small: {
 				media: '(max-width: 736px)',
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style-small.css',
+				href: mediapath + 'style-small.css',
 				containers: '90%!',
 				grid: { gutters: ['1.25em', 0] }
 			},
 			xsmall: {
 				media: '(max-width: 480px)',
-				href: 'http://buquit.loc/media/themes/transit-for-wordpress/resources/css/style-xsmall.css'
+				href: mediapath + 'style-xsmall.css'
 			}
 		},
 		plugins: {
