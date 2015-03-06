@@ -23,7 +23,7 @@
 <header id="header">
    <h1><a href="<?php home_url(); ?>"><?php the_title(); ?></a></h1>
    <nav id="nav">
-      <?php \Transit4WP\ThemeSetup::getMainMenu(); ?>
+      <?php \Transit4WP\ThemeSetup::getMainMenu( array( 'menu' => 'Menu Principal' ) ); ?>
    </nav>
 </header>
 

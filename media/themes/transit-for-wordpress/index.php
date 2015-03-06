@@ -54,22 +54,22 @@
       <section class="profiles">
          <div class="row">
             <section class="3u 6u(medium) 12u$(xsmall) profile">
-               <img src="images/profile_placeholder.gif" alt="" />
+               <img src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>images/profile_placeholder.gif" alt="" />
                <h4>Lorem ipsum</h4>
                <p>Lorem ipsum dolor</p>
             </section>
             <section class="3u 6u$(medium) 12u$(xsmall) profile">
-               <img src="images/profile_placeholder.gif" alt="" />
+               <img src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>images/profile_placeholder.gif" alt="" />
                <h4>Voluptatem dolores</h4>
                <p>Ullam nihil repudi</p>
             </section>
             <section class="3u 6u(medium) 12u$(xsmall) profile">
-               <img src="images/profile_placeholder.gif" alt="" />
+               <img src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>images/profile_placeholder.gif" alt="" />
                <h4>Doloremque quo</h4>
                <p>Harum corrupti quia</p>
             </section>
             <section class="3u$ 6u$(medium) 12u$(xsmall) profile">
-               <img src="images/profile_placeholder.gif" alt="" />
+               <img src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>images/profile_placeholder.gif" alt="" />
                <h4>Voluptatem dicta</h4>
                <p>Et natus sapiente</p>
             </section>

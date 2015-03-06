@@ -10,6 +10,19 @@ class ThemeSetup{
       //TODO: If options are empty, set default options.
    }
 
+   public static function init(){
+      add_theme_support( 'post-thumbnails' );
+      //TODO: Get Post Types from Theme Options, enable here.
+      //add_theme_support( 'post_types', array( 'aside', 'gallery' ) );
+
+      //Enqueue Scripts
+      self::enqueueScripts();
+      //Register Menus
+      self::registerMenus();
+      //Register Sidebars
+      self::registerSidebars();
+   }
+
    public static function getOptions(){
       $options = new \stdClass();
       $options->scriptsInFooter = true;//get_option( 'transit4wp_scripts_in_footer' );
@@ -29,13 +42,62 @@ class ThemeSetup{
       }
    }
 
-   public static function getMainMenu(){
-      return '<ul>
-         <li><a href="index.html">Home</a></li>
-         <li><a href="generic.html">Generic</a></li>
-         <li><a href="elements.html">Elements</a></li>
-         <li><a href="#" class="button special">Sign Up</a></li>
-      </ul>';
+   //TODO: Consider moving to a new class
+   public static function getMainMenu( $properties = null, $echo = true ){
+      $attributes = array( 'theme_location'  => 'mainMenu',
+                           'menu'            => '',
+                           'container'       => false,
+                           'container_class' => false,
+                           'container_id'    => '',
+                           'menu_class'      => '',
+                           'menu_id'         => '',
+                           'echo'            => $echo,
+                           'fallback_cb'     => 'wp_page_menu',
+                           'before'          => '',
+                           'after'           => '',
+                           'link_before'     => '',
+                           'link_after'      => '',
+                           'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                           'depth'           => 0,
+                           'walker'          => '');
+
+      if ( !empty($properties) ){
+         $attributes = shortcode_atts( $attributes, $properties );
+      }
+
+      return wp_nav_menu( $attributes );
+   }
+
+   public static function registerMenus(){
+      register_nav_menus(
+         array(
+            'mainMenu' => __( 'Main Menu', 'transit4wp' ),
+            'footerMenu01' => __( 'First Footer Menu', 'transit4wp' ),
+            'footerMenu02' => __( 'Second Footer Menu', 'transit4wp' ),
+            'footerMenu03' => __( 'Third Footer Menu', 'transit4wp' ),
+            'footerMenu04' => __( 'Fourth Footer Menu', 'transit4wp' ),
+         )
+      );
+   }
+
+   public static function registerSidebars(){
+      foreach( range(1, 4) as $index ){
+         self::registerWPSidebar( array( 'name' => __( 'Footer Section'  , 'transit4wp' ) . sprintf(' %02d', $index) , 'id' => 'transit4wp_footer_section_' . sprintf('%02d', $index) ) );
+      }
+   }
+
+   private static function registerWPSidebar( $properties ){
+      $attributes = array( 'name'          => __( 'Sidebar name', 'theme_text_domain' ),
+                           'id'            => 'unique-sidebar-id',
+                           'description'   => '',
+                           'class'         => '',
+                           'before_widget' => '', #'<li id="%1$s" class="widget %2$s">',
+                           'after_widget'  => '', #'</li>',
+                           'before_title'  => '<h2 class="widgettitle">',
+                           'after_title'   => '</h2>');
+
+      $attributes = shortcode_atts( $attributes, $properties );
+      register_sidebar( $attributes );
    }
 
    public static function enqueueScripts(){
