@@ -2,18 +2,24 @@
 namespace Transit4WP;
 class ThemeSetup{
 
-   public $options;
+   private static $options;
 
    public function __construct(){
-      //TODO: Load the theme options here
-      $options = $this->getOptions();
-      //TODO: If options are empty, set default options.
+      //Load Vendors
+      $fieldManagerPath = '../vendors/wordpress-fieldmanager-master/fieldmanager.php';
+      if( file_exists( $fieldManagerPath ) ){
+         require_once( $fieldManagerPath );
+      }
+
+      self::$options = $this->getOptions();
    }
 
    public static function init(){
+      //Support for Thumbnails
       add_theme_support( 'post-thumbnails' );
-      //TODO: Get Post Types from Theme Options, enable here.
-      //add_theme_support( 'post_types', array( 'aside', 'gallery' ) );
+
+      //Custom Post Formats
+      add_theme_support( 'post-formats', ot_get_option( 'post_formats', array() ) );
 
       //Enqueue Scripts
       self::enqueueScripts();
@@ -24,9 +30,14 @@ class ThemeSetup{
    }
 
    public static function getOptions(){
+      if ( !empty( self::$options ) ){
+         return self::$options;
+      }
+
       $options = new \stdClass();
-      $options->scriptsInFooter = true;//get_option( 'transit4wp_scripts_in_footer' );
-      return $options;
+      $options->scriptsInFooter = ( ot_get_option( 'load_scripts_in_footer' ) === 'on' );
+
+      return self::$options;
    }
 
    public static function getResourcesPath( $filePath = 'js/init.js', $echo = true ){
@@ -42,7 +53,6 @@ class ThemeSetup{
       }
    }
 
-   //TODO: Consider moving to a new class
    public static function getMainMenu( $properties = null, $echo = true ){
       $attributes = array( 'theme_location'  => 'mainMenu',
                            'menu'            => '',
