@@ -4,14 +4,7 @@
       <section class="links">
          <div class="row">
             <section class="3u 6u(medium) 12u$(small)">
-               <h3>Lorem ipsum dolor</h3>
-               <ul class="unstyled">
-                  <li><a href="#">Lorem ipsum dolor sit</a></li>
-                  <li><a href="#">Nesciunt itaque, alias possimus</a></li>
-                  <li><a href="#">Optio rerum beatae autem</a></li>
-                  <li><a href="#">Nostrum nemo dolorum facilis</a></li>
-                  <li><a href="#">Quo fugit dolor totam</a></li>
-               </ul>
+               <?php dynamic_sidebar( '' ); ?>
             </section>
             <section class="3u 6u$(medium) 12u$(small)">
                <h3>Culpa quia, nesciunt</h3>
@@ -55,26 +48,30 @@
          </div>
          <div class="4u$ 12u$(medium)">
             <ul class="icons">
-               <li>
-                  <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-               </li>
-               <li>
-                  <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-               </li>
-               <li>
-                  <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-               </li>
-               <li>
-                  <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-               </li>
+               <?php if( \Transit4WP\ThemeOptions::getOption( 'facebookLink' ) ) { ?>
+                  <li>
+                     <a class="icon rounded fa-facebook" href="<?php echo \Transit4WP\ThemeOptions::getOption( 'facebookLink' ); ?>"><span class="label">Facebook</span></a>
+                  </li>
+               <?php } if( \Transit4WP\ThemeOptions::getOption( 'twitterLink' ) ){ ?>
+                  <li>
+                     <a class="icon rounded fa-twitter" href="<?php echo \Transit4WP\ThemeOptions::getOption( 'twitterLink' ); ?>"><span class="label">Twitter</span></a>
+                  </li>
+               <?php } if( \Transit4WP\ThemeOptions::getOption( 'googlePlusLink' ) ){ ?>
+                  <li>
+                     <a class="icon rounded fa-google-plus" href="<?php echo \Transit4WP\ThemeOptions::getOption( 'googlePlusLink' ); ?>"><span class="label">Google+</span></a>
+                  </li>
+               <?php } if( \Transit4WP\ThemeOptions::getOption( 'linkedInLink' ) ){ ?>
+                  <li>
+                     <a class="icon rounded fa-linkedin" href="<?php echo \Transit4WP\ThemeOptions::getOption( 'linkedInLink' ); ?>"><span class="label">LinkedIn</span></a>
+                  </li>
+               <?php } ?>
             </ul>
          </div>
       </div>
    </div>
 </footer>
 <?php wp_footer();
-$themeOptions = \Transit4WP\ThemeSetup::getOptions();
-if( $themeOptions->scriptsInFooter ){ ?>
+if( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ){ ?>
    <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="http://buquit.loc/media/themes/transit-for-wordpress/resources/"></script>
 <?php } ?>
 

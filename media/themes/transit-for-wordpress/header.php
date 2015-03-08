@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> style="margin-top: 0px!important;">
 <head>
-   <title><?php the_title(); ?></title>
    <meta charset="UTF-8">
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <meta name="description" content="<?php the_excerpt(); ?>" />
-   <?php wp_head();
-   $themeOptions = \Transit4WP\ThemeSetup::getOptions();
-   if( !$themeOptions->scriptsInFooter ){ ?>
+   <?php wp_head(); ?>
+
+   <?php if( !( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ) ){ ?>
       <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
    <?php } ?>
 

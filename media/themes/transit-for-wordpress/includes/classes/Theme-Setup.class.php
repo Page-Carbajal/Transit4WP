@@ -34,17 +34,6 @@ class ThemeSetup{
       self::registerSidebars();
    }
 
-   public static function getOptions(){
-      if ( !empty( self::$options ) ){
-         return self::$options;
-      }
-
-      $options = new \stdClass();
-      $options->scriptsInFooter = ( ot_get_option( 'load_scripts_in_footer' ) === 'on' );
-
-      return self::$options;
-   }
-
    public static function getResourcesPath( $filePath = 'js/init.js', $echo = true ){
       $resourcesPath = get_stylesheet_directory_uri() .'/resources/';
       if( !file_exists( $resourcesPath . $filePath ) ){
@@ -131,9 +120,9 @@ class ThemeSetup{
    }
 
    public static function enqueueScripts(){
-      $themeOptions = ThemeSetup::getOptions();
+      $scriptsInFooter = ThemeOptions::getOption('scriptsInFooter');
 
-      wp_enqueue_script('jquery',false, array(), false, $themeOptions->scriptsInFooter);
+      wp_enqueue_script('jquery',false, array(), false, $scriptsInFooter);
       //Enqueue Skel Scripts
       $scripts = array( 'html5Shiv' => 'html5shiv.js',  'skel' => 'skel.min.js', 'skelLayers' => 'skel-layers.min.js' );
       if( !preg_match('/(?i)msie [1-8]/',$_SERVER['HTTP_USER_AGENT']) ){
@@ -146,7 +135,7 @@ class ThemeSetup{
             $scriptPath = get_template_directory_uri() . '/resources/js/';
          }
          wp_register_script( $name . '_Transit4WP', $scriptPath . $file , array('jquery') );
-         wp_enqueue_script( $name . '_Transit4WP', false, array('jquery'), false, $themeOptions->scriptsInFooter );
+         wp_enqueue_script( $name . '_Transit4WP', false, array('jquery'), false, $scriptsInFooter );
       }
 
    }
