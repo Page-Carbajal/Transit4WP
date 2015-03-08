@@ -1,17 +1,22 @@
 <?php
 namespace Transit4WP;
 class ThemeSetup{
-
    private static $options;
 
    public function __construct(){
       //Load Vendors
-      $fieldManagerPath = '../vendors/wordpress-fieldmanager-master/fieldmanager.php';
+      $filePath = '/includes/vendors/wordpress-fieldmanager-master/fieldmanager.php';
+      $fieldManagerPath = ( file_exists( get_stylesheet_directory() . $filePath ) ? get_stylesheet_directory() : get_template_directory() ) . $filePath;
+
       if( file_exists( $fieldManagerPath ) ){
          require_once( $fieldManagerPath );
+         fieldmanager_set_baseurl( get_stylesheet_directory_uri() . '/includes/vendors/wordpress-fieldmanager-master/' );
       }
 
-      self::$options = $this->getOptions();
+      //Set Metaboxes
+      $this->setMetaboxes();
+      //Get Option Values
+      //self::$options = $this->getOptions();
    }
 
    public static function init(){
@@ -51,6 +56,21 @@ class ThemeSetup{
       } else{
          return $resourcesPath;
       }
+   }
+
+   public function setMetaboxes( $postTypes = array('post', 'page') ){
+
+      $controls = array( 'banner_title' => new \Fieldmanager_TextField( __('Banner Heading', 'transit4wp' ) ) );
+      $controls['banner_subtitle']  = new \Fieldmanager_TextField( __( 'Banner Subtitle', 'transit4wp' ) );
+      $controls['banner_hero']      = new \Fieldmanager_Media( __( 'Hero Image', 'transit4wp' ) );
+      $controls['action_text']      = new \Fieldmanager_TextField( __( 'Action Text', 'transit4wp' ) );
+      $controls['action_link']      = new \Fieldmanager_Link( __( 'Action Link', 'transit4wp' ) );
+      $controls['action_target']    = new \Fieldmanager_TextField( __( 'Action Target', 'transit4wp' ) );
+      $controls['action_class']     = new \Fieldmanager_TextField( __( 'Action Class', 'transit4wp' ) );
+
+      $fields = new \Fieldmanager_Group( array( 'name' => 'transit4wp_banner_meta', 'children' => $controls ) );
+      $fields->add_meta_box( __( 'Post Banner', 'transit4wp' ), $postTypes );
+
    }
 
    public static function getMainMenu( $properties = null, $echo = true ){

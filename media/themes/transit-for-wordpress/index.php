@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php get_header();
+$postMeta = get_post_meta( 'transit_banner_cfg' );
+print_r( $postMeta );
+?>
 
 <!-- Banner -->
 <section id="banner">
