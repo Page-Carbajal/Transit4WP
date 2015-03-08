@@ -2,11 +2,9 @@
 while( have_posts() ){
    the_post();
    if ( !empty($post->banner) && $post->banner-isValid ){
-      get_template_part('partial','banner');
+      get_template_part('templates/partial','banner');
    }
    ?>
-
-
 
    <!-- One -->
    <section id="one" class="wrapper style1 special">
