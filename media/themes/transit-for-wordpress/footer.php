@@ -4,37 +4,16 @@
       <section class="links">
          <div class="row">
             <section class="3u 6u(medium) 12u$(small)">
-               <?php dynamic_sidebar( '' ); ?>
+               <?php dynamic_sidebar( 'transit4wp_footer_section_01' ); ?>
             </section>
             <section class="3u 6u$(medium) 12u$(small)">
-               <h3>Culpa quia, nesciunt</h3>
-               <ul class="unstyled">
-                  <li><a href="#">Lorem ipsum dolor sit</a></li>
-                  <li><a href="#">Reiciendis dicta laboriosam enim</a></li>
-                  <li><a href="#">Corporis, non aut rerum</a></li>
-                  <li><a href="#">Laboriosam nulla voluptas, harum</a></li>
-                  <li><a href="#">Facere eligendi, inventore dolor</a></li>
-               </ul>
+               <?php dynamic_sidebar( 'transit4wp_footer_section_02' ); ?>
             </section>
             <section class="3u 6u(medium) 12u$(small)">
-               <h3>Neque, dolore, facere</h3>
-               <ul class="unstyled">
-                  <li><a href="#">Lorem ipsum dolor sit</a></li>
-                  <li><a href="#">Distinctio, inventore quidem nesciunt</a></li>
-                  <li><a href="#">Explicabo inventore itaque autem</a></li>
-                  <li><a href="#">Aperiam harum, sint quibusdam</a></li>
-                  <li><a href="#">Labore excepturi assumenda</a></li>
-               </ul>
+               <?php dynamic_sidebar( 'transit4wp_footer_section_03' ); ?>
             </section>
             <section class="3u$ 6u$(medium) 12u$(small)">
-               <h3>Illum, tempori, saepe</h3>
-               <ul class="unstyled">
-                  <li><a href="#">Lorem ipsum dolor sit</a></li>
-                  <li><a href="#">Recusandae, culpa necessita nam</a></li>
-                  <li><a href="#">Cupiditate, debitis adipisci blandi</a></li>
-                  <li><a href="#">Tempore nam, enim quia</a></li>
-                  <li><a href="#">Explicabo molestiae dolor labore</a></li>
-               </ul>
+               <?php dynamic_sidebar( 'transit4wp_footer_section_04' ); ?>
             </section>
          </div>
       </section>

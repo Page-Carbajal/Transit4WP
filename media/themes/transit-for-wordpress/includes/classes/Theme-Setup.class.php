@@ -81,7 +81,7 @@ class ThemeSetup{
                            'walker'          => '');
 
       if ( !empty($properties) ){
-         $attributes = shortcode_atts( $attributes, $properties );
+         $attributes = wp_parse_args( $attributes, $properties );
       }
 
       return wp_nav_menu( $attributes );
@@ -101,21 +101,23 @@ class ThemeSetup{
 
    public static function registerSidebars(){
       foreach( range(1, 4) as $index ){
-         self::registerWPSidebar( array( 'name' => __( 'Footer Section'  , 'transit4wp' ) . sprintf(' %02d', $index) , 'id' => 'transit4wp_footer_section_' . sprintf('%02d', $index) ) );
+         self::registerWPSidebar( array( 'name' => __( 'Footer Section'  , 'transit4wp' ) . sprintf(' %02d', $index),
+                                          'class' => 'unstyled',
+                                          'id' => 'transit4wp_footer_section_' . sprintf('%02d', $index) ) );
       }
    }
 
    private static function registerWPSidebar( $properties ){
-      $attributes = array( 'name'          => __( 'Sidebar name', 'theme_text_domain' ),
+      $attributes = array( 'name'          => __( 'Sidebar name', 'transit4wp' ),
                            'id'            => 'unique-sidebar-id',
                            'description'   => '',
                            'class'         => '',
                            'before_widget' => '', #'<li id="%1$s" class="widget %2$s">',
                            'after_widget'  => '', #'</li>',
-                           'before_title'  => '<h2 class="widgettitle">',
-                           'after_title'   => '</h2>');
+                           'before_title'  => '<h3 class="widgettitle">',
+                           'after_title'   => '</h3>');
 
-      $attributes = shortcode_atts( $attributes, $properties );
+      $attributes = wp_parse_args( $attributes, $properties );
       register_sidebar( $attributes );
    }
 
