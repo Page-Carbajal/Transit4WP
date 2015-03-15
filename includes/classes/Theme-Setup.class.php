@@ -26,6 +26,10 @@ class ThemeSetup{
       //Custom Post Formats
       add_theme_support( 'post-formats', ot_get_option( 'post_formats', array() ) );
 
+      //Set Wordpress Filters
+      self::setWordPressFilters();
+      //Enqueue Styles
+      self::enqueueStyles();
       //Enqueue Scripts
       self::enqueueScripts();
       //Register Menus
@@ -121,6 +125,12 @@ class ThemeSetup{
       register_sidebar( $attributes );
    }
 
+   public static function enqueueStyles(){
+      $mediaPath = get_stylesheet_directory_uri() . '/resources/css/%s';
+      wp_register_style( 'transit4wp_overrides', sprintf( $mediaPath, 'transit-overrides.css' ) );
+      wp_enqueue_style( 'transit4wp_overrides' );
+   }
+
    public static function enqueueScripts(){
       $scriptsInFooter = ThemeOptions::getOption('scriptsInFooter');
 
@@ -140,6 +150,17 @@ class ThemeSetup{
          wp_enqueue_script( $name . '_Transit4WP', false, array('jquery'), false, $scriptsInFooter );
       }
 
+   }
+
+   public static function setNavigationLinkAttributes($atts, $item, $args, $depth){
+      //Filter for: nav_menu_link_attributes
+      //Ads class to the link
+      //$atts['class'] = 'button special';
+      return $atts;
+   }
+
+   public static function setWordPressFilters(){
+      add_filter( 'nav_menu_link_attributes', array( 'Transit4WP\ThemeSetup', 'setNavigationLinkAttributes'), 10, 4 );
    }
 
 }
