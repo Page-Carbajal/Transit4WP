@@ -51,7 +51,7 @@
 </footer>
 <?php wp_footer();
 if( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ){ ?>
-   <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="http://buquit.loc/media/themes/transit-for-wordpress/resources/"></script>
+   <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
 <?php } ?>
 
 </body>
