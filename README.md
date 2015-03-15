@@ -11,34 +11,30 @@ If you consider this template is cool, tell your friends, rate it, write about i
 Godspeed! 
 
 ## Requirements ##
-
-This theme requires the following
-
+This theme requires
 * PHP version 5.4 or higher (Yes we use namespaces and classes deal with it)
 * Wordpress version 4.0 or higher
 
-
 ## How to install ##
+***TBD***
 
-
-## Versioning ##
-
+##Road Map##
 ### Version 0 ###
-
-1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php)
-2. Theme options page
-3. Implementation of minified scripts and styles in a way Google will approve (All Scripts at the bottom)
-4. Internationalization
-5. Integration of Ninja Forms and Contact Form 7
-6. Short-codes (Icons, Buttons, Lists)
-7. Short-codes (Tables)
-8. Widget Areas
-9. Basic Plugin Styling
-10. Add Links on the Bottom of the page to reference Templated.co and Me
+1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php) *current
+2. Enhance Scripts and Styles
+3. Internationalization
+4. Integration of Ninja Forms and Contact Form 7
+5. Short-codes (Icons, Buttons, Lists)
+6. Short-codes (Tables)
+7. Widget Areas
+8. Basic Plugin Styling
+9. Add Links on the Bottom of the page to reference Templated.co and Me
+10. Theme options page
+11. Verify PHP Version to 5.4+ and Require plugins before install
 
 ## Version 1 ##
-
-1. Implementation of WordPress Framework
+1. Twig integration through Timber
+2. TemplateController integration
 
 
 ### Need help ###
