@@ -1,14 +1,12 @@
 # README #
 
-The PHP side of this project is developed and mantained by Iaax Page when he is not fighting crime and evil forces with the Avengers.
+The PHP-side of this project is developed and mantained by [Iaax Page](http://iaaxpage.com). When he is not fighting for the world side by side with the Avengers. #TrueStory
  
-This wordpress theme is based on original work by [Templated](http://templated.co)
-Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+This wordpress theme is based on original work by [Templated.co](http://templated.co) and its released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 
-I invite you to respect the attribution grant of this work released under Creative Commons. Don't be a Jerk.
-If you consider this template is cool, tell your friends, rate it, write about it. 
+I invite you to respect the CC grant of this work and if you consider this template "Cool", then tell your friends, rate it, write about it. 
 
-Godspeed! 
+Godspeed! And off you go now. 
 
 ## Requirements ##
 This theme requires

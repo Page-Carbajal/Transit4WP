@@ -127,8 +127,10 @@ class ThemeSetup{
 
    public static function enqueueStyles(){
       $mediaPath = get_stylesheet_directory_uri() . '/resources/css/%s';
-      wp_register_style( 'transit4wp_overrides', sprintf( $mediaPath, 'transit-overrides.css' ) );
-      wp_enqueue_style( 'transit4wp_overrides' );
+      wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
+      wp_enqueue_style( 'cssTransit4WP' );
+      //wp_register_style( 'transit4wp_overrides', sprintf( $mediaPath, 'style.css' ) );
+      //wp_enqueue_style( 'transit4wp_overrides' );
    }
 
    public static function enqueueScripts(){
@@ -149,7 +151,6 @@ class ThemeSetup{
          wp_register_script( $name . '_Transit4WP', $scriptPath . $file , array('jquery') );
          wp_enqueue_script( $name . '_Transit4WP', false, array('jquery'), false, $scriptsInFooter );
       }
-
    }
 
    public static function setNavigationLinkAttributes($atts, $item, $args, $depth){
