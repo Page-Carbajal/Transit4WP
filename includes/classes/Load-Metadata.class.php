@@ -6,12 +6,11 @@ class LoadMetadata{
    }
 
    public static function init( $post ){
-      if( is_single() || is_home() || is_front_page() ){
-         $post->banner = new BannerMeta( $post->ID );
-         //Is passed by reference so it doesn't mind
-         return $post;
-      }
-      return false;
+      if ( empty( $post ) )
+         return false;
+      $post->banner = new BannerMeta( $post->ID );
+      //Is passed by reference so it doesn't mind
+      return $post;
    }
 }
 

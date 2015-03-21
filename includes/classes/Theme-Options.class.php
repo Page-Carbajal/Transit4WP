@@ -37,6 +37,10 @@ class ThemeOptions {
       $options->linkedInLink     = self::getOptionValue( 'linkedin_link', false );
       $options->googlePlusLink   = self::getOptionValue( 'googleplus_link', false );
 
+      $options->showBlogSidebar  = self::getOptionValue( 'show_blog_sidebar', true );
+
+      $options->custom404message = self::getOptionValue( 'custom_404_message', false );
+
       return $options;
    }
 

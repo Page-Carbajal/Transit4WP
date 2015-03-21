@@ -26,6 +26,9 @@ class ThemeSetup{
       //Custom Post Formats
       add_theme_support( 'post-formats', ot_get_option( 'post_formats', array() ) );
 
+      //Register Filters
+      self::registerFilters();
+
       //Set Wordpress Filters
       self::setWordPressFilters();
       //Enqueue Styles
@@ -36,6 +39,11 @@ class ThemeSetup{
       self::registerMenus();
       //Register Sidebars
       self::registerSidebars();
+   }
+
+   public static function registerFilters(){
+      //Load Metadata into the post object
+      add_action( 'the_post', array( 'Transit4WP\LoadMetadata', 'init' ) );
    }
 
    public static function getResourcesPath( $filePath = 'js/init.js', $echo = true ){
@@ -104,6 +112,10 @@ class ThemeSetup{
    }
 
    public static function registerSidebars(){
+      //Register Blog Sidebar
+      self::registerWPSidebar( array( 'id' => 'transit4wp_sidebar', 'name' => 'Blog Sidebar', 'class' => 'blogSidebar' ) );
+
+      //Register Footer Sections
       foreach( range(1, 4) as $index ){
          self::registerWPSidebar( array( 'name' => __( 'Footer Section'  , 'transit4wp' ) . sprintf(' %02d', $index),
                                           'class' => 'unstyled',
@@ -121,7 +133,7 @@ class ThemeSetup{
                            'before_title'  => '<h3 class="widgettitle">',
                            'after_title'   => '</h3>');
 
-      $attributes = wp_parse_args( $attributes, $properties );
+      $attributes = wp_parse_args( $properties, $attributes );
       register_sidebar( $attributes );
    }
 

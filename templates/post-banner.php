@@ -1,7 +1,7 @@
 <!-- Banner -->
 <section id="banner" style="background-image: url('<?php echo $post->banner->heroURL; ?>');">
    <div class="bannerShade"></div>
-   <h2><?php echo $post->banner->title; ?></h2>
+   <h1><?php echo $post->banner->title; ?></h1>
    <p><?php echo $post->banner->subtitle; ?></p>
    <ul class="actions">
       <?php if( !empty($post->banner->actionText) ){ ?>

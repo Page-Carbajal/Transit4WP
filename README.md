@@ -13,26 +13,31 @@ This theme requires
 * PHP version 5.4 or higher (Yes we use namespaces and classes deal with it)
 * Wordpress version 4.0 or higher
 
-## How to install ##
+## Features ##
 ***TBD***
 
 ##Road Map##
-### Version 0 ###
-1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php) *current
-2. Enhance Scripts and Styles
-3. Internationalization
-4. Integration of Ninja Forms and Contact Form 7
-5. Short-codes (Icons, Buttons, Lists)
-6. Short-codes (Tables)
-7. Widget Areas
-8. Basic Plugin Styling
-9. Add Links on the Bottom of the page to reference Templated.co and Me
-10. Theme options page
-11. Verify PHP Version to 5.4+ and Require plugins before install
-
-## Version 1 ##
-1. Twig integration through Timber
-2. TemplateController integration
+0. Basic WordPress Theme 
+    1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php) *current
+        1. Add Links on the Bottom of the page to reference Templated.co and Me
+        2. Page-full-width.php, search.php, sidebar.php, 404.php, archive.php
+    2. Enhance Scripts and Styles and Internationalization
+    3. Enhancements to pass [WordPress' Theme Unit Test](https://codex.wordpress.org/Theme_Unit_Test)
+    4. Integration of Ninja Forms and Contact Form 7
+    5. Plugin for short codes (Icons, Buttons, Lists, Tables)
+        1. Widget-area styling
+    6. Awesomeness
+        1. Add filters for functions
+        2. Autoload Classes
+        3. Set up Inheritance of Theme Setup through Transit Setup class
+    7. Finishing Touches
+        1. Theme options page
+        2. Verify PHP Version to 5.4+
+        3. Require plugins before install
+    8. Meet all WordPress' [required](https://make.wordpress.org/themes/handbook/review/required/) options
+1. Timber Integration
+    1. Twig integration through Timber
+    2. TemplateController integration
 
 
 ### Need help ###
