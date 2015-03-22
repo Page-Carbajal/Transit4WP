@@ -18,9 +18,12 @@ This theme requires
 
 ##Road Map##
 0. Basic WordPress Theme 
-    1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php) *current
+    1. Very basic WordPress Theme (index.php, header.php, footer.php, single.php, page.php, page-home.php) 
         1. Add Links on the Bottom of the page to reference Templated.co and Me
-        2. Page-full-width.php, search.php, sidebar.php, 404.php, archive.php
+        2. Search.php, sidebar.php, 404.php, archive.php **(current)**
+        3. Comments templates + Semantic UI comment view styles
+        4. author.php + Semantic UI Card view styles
+        5. Paging. because you have to have it. :D 
     2. Enhance Scripts and Styles and Internationalization
     3. Enhancements to pass [WordPress' Theme Unit Test](https://codex.wordpress.org/Theme_Unit_Test)
     4. Integration of Ninja Forms and Contact Form 7

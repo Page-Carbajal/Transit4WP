@@ -14,6 +14,11 @@ while( have_posts() ){
          <?php the_content(); ?>
       </div>
    </section>
+
+   <?php if ( comments_open() || get_comments_number() ) {
+      comments_template();
+   } ?>
+
 <?php
 }
 

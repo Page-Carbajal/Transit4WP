@@ -140,9 +140,14 @@ class ThemeSetup{
    public static function enqueueStyles(){
       $mediaPath = get_stylesheet_directory_uri() . '/resources/css/%s';
       wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
+      wp_register_style( 'semantic-ui-cards', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
+      wp_register_style( 'semantic-ui-comment', sprintf( $mediaPath, 'semantic-ui/comment.min.css' ) );
+      wp_register_style( 'semantic-ui-segment', sprintf( $mediaPath, 'semantic-ui/segment.min.css' ) );
+
       wp_enqueue_style( 'cssTransit4WP' );
-      //wp_register_style( 'transit4wp_overrides', sprintf( $mediaPath, 'style.css' ) );
-      //wp_enqueue_style( 'transit4wp_overrides' );
+      wp_enqueue_style( 'semantic-ui-cards' );
+      wp_enqueue_style( 'semantic-ui-comment' );
+      wp_enqueue_style( 'semantic-ui-segment' );
    }
 
    public static function enqueueScripts(){
