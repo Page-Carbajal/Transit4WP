@@ -30,6 +30,7 @@ class ThemeOptions {
    private static function getThemeOptions(){
       $options = new \stdClass();
 
+      $options->blogHeaderImage = self::getOptionValue( 'blog_header_image', false );
       $options->scriptsInFooter = ( self::getOptionValue( 'load_scripts_in_footer', 'on' ) === 'on' );
 
       $options->facebookLink     = self::getOptionValue( 'facebook_link', false );
@@ -40,6 +41,8 @@ class ThemeOptions {
       $options->showBlogSidebar  = self::getOptionValue( 'show_blog_sidebar', true );
 
       $options->custom404message = self::getOptionValue( 'custom_404_message', false );
+      $options->customStyles     = self::getOptionValue( 'custom_styles', false );
+      $options->customScripts    = self::getOptionValue( 'custom_scripts', false );
 
       return $options;
    }

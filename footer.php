@@ -19,11 +19,10 @@
       </section>
       <div class="row">
          <div class="8u 12u$(medium)">
-            <ul class="copyright">
-               <li>&copy; Untitled. All rights reserved.</li>
-               <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-               <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-            </ul>
+            <p class="copyright">
+               Designed by: <a href="http://templated.co">TEMPLATED</a>
+               Developed by: <a href="http://iconicamarketing.com">Iconica Marketing</a>
+            </p>
          </div>
          <div class="4u$ 12u$(medium)">
             <ul class="icons">
@@ -50,6 +49,13 @@
    </div>
 </footer>
 <?php wp_footer();
+
+if( ( $customScripts = \Transit4WP\ThemeOptions::getOption( 'customScripts' ) ) !== false ){ ?>
+   <script type="text/javascript">
+      <?php echo $customScripts; ?>
+   </script>
+<?php }
+
 if( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ){ ?>
    <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
 <?php } ?>

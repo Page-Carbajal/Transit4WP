@@ -41,6 +41,15 @@ class BannerMeta{
          $this->actionTarget  = $meta[0]['action_target'];
          $this->actionClass   = $meta[0]['action_class'];
       }
+      if( empty( $meta ) && ( get_option( 'page_for_posts' ) == $postId ) && ( intval( get_option( 'page_on_front' ) ) < 1 ) ) {
+         //Theme is configures to use a default image for the blog
+
+         $this->title         = get_option( 'blogname' );
+         $this->subtitle      = get_option( 'blogdescription' );
+         $this->heroURL       = ThemeOptions::getOption( 'blogHeaderImage' );
+         $this->isValid       = true;
+
+      }
    }
 
    public function getHeroHTML( $size = 'full' ){

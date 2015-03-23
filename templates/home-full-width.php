@@ -1,4 +1,4 @@
-      <div class="bodyContent box">
+      <div class="bodyContent">
          <?php
          while( have_posts() ){
             the_post();

@@ -4,19 +4,46 @@ class ThemeSetup{
    private static $options;
 
    public function __construct(){
-      //Load Vendors
-      $filePath = '/includes/vendors/wordpress-fieldmanager-master/fieldmanager.php';
-      $fieldManagerPath = ( file_exists( get_stylesheet_directory() . $filePath ) ? get_stylesheet_directory() : get_template_directory() ) . $filePath;
-
-      if( file_exists( $fieldManagerPath ) ){
-         require_once( $fieldManagerPath );
-         fieldmanager_set_baseurl( get_stylesheet_directory_uri() . '/includes/vendors/wordpress-fieldmanager-master/' );
-      }
-
+      //Dependencies / Vendors
+      $this->loadFieldManager();
+      $this->loadOptionTree();
       //Set Metaboxes
       $this->setMetaboxes();
       //Get Option Values
       //self::$options = $this->getOptions();
+   }
+
+   public function loadFieldManager(){
+      $path = '/includes/vendors/wordpress-fieldmanager-master/fieldmanager.php';
+      $filePath =  get_template_directory() . $path;
+
+      if( file_exists( $filePath ) ){
+         require_once( $filePath );
+         fieldmanager_set_baseurl( get_template_directory_uri() . '/includes/vendors/wordpress-fieldmanager-master/' );
+      }
+
+   }
+
+   public function loadOptionTree(){
+      //set to false when in development
+      add_filter( 'ot_theme_mode', '__return_true' );
+
+      //Hide The Menu Item //Set to false on development
+      add_filter( 'ot_show_pages', '__return_false' );
+
+      $path = '/includes/vendors/option-tree/source/option-tree/ot-loader.php';
+      $filePath =  get_template_directory() . $path;
+
+      //Load Option Tree Source
+      if( file_exists( $filePath ) ){
+         require( $filePath );
+         $path = '/includes/vendors/option-tree/theme-options.php';
+         $filePath =  get_template_directory() . $path;
+         if( file_exists( $filePath ) ){
+            require_once( $filePath );
+         }
+      }
+
    }
 
    public static function init(){
@@ -26,9 +53,11 @@ class ThemeSetup{
       //Custom Post Formats
       add_theme_support( 'post-formats', ot_get_option( 'post_formats', array() ) );
 
+      //Remove OptionTree Menu
+      add_action( 'admin_menu', array( 'Transit4WP\ThemeSetup', 'removeOptionTreeMenu' ) );
+
       //Register Filters
       self::registerFilters();
-
       //Set Wordpress Filters
       self::setWordPressFilters();
       //Enqueue Styles
@@ -144,17 +173,21 @@ class ThemeSetup{
    public static function enqueueStyles(){
       $mediaPath = get_stylesheet_directory_uri() . '/resources/css/%s';
       wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
-      wp_register_style( 'semantic-ui-cards', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
+      wp_register_style( 'semantic-ui-button', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
+      wp_register_style( 'semantic-ui-card', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
       wp_register_style( 'semantic-ui-comment', sprintf( $mediaPath, 'semantic-ui/comment.min.css' ) );
       wp_register_style( 'semantic-ui-feed', sprintf( $mediaPath, 'semantic-ui/feed.min.css' ) );
       wp_register_style( 'semantic-ui-icon', sprintf( $mediaPath, 'semantic-ui/icon.min.css' ) );
+      wp_register_style( 'semantic-ui-menu', sprintf( $mediaPath, 'semantic-ui/menu.min.css' ) );
       wp_register_style( 'semantic-ui-segment', sprintf( $mediaPath, 'semantic-ui/segment.min.css' ) );
 
       wp_enqueue_style( 'cssTransit4WP' );
-      wp_enqueue_style( 'semantic-ui-cards' );
+      wp_enqueue_style( 'semantic-ui-button' );
+      wp_enqueue_style( 'semantic-ui-card' );
       wp_enqueue_style( 'semantic-ui-comment' );
       wp_enqueue_style( 'semantic-ui-feed' );
       wp_enqueue_style( 'semantic-ui-icon' );
+      wp_enqueue_style( 'semantic-ui-menu' );
       wp_enqueue_style( 'semantic-ui-segment' );
    }
 
@@ -162,8 +195,14 @@ class ThemeSetup{
       $scriptsInFooter = ThemeOptions::getOption('scriptsInFooter');
 
       wp_enqueue_script('jquery',false, array(), false, $scriptsInFooter);
-      //Enqueue Skel Scripts
-      $scripts = array( 'html5Shiv' => 'html5shiv.js',  'skel' => 'skel.min.js', 'skelLayers' => 'skel-layers.min.js' );
+
+      //Enqueue al scripts
+      $scripts = array(
+         'html5Shiv' => 'html5shiv.js',
+         'skel' => 'skel.min.js',
+         'skelLayers' => 'skel-layers.min.js',
+         'shareOn' => 'share-on.js',
+      );
       if( !preg_match('/(?i)msie [1-8]/',$_SERVER['HTTP_USER_AGENT']) ){
          unset($scripts['html5Shiv']);
       }

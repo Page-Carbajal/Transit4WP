@@ -8,9 +8,17 @@
       <link rel="stylesheet" href="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>css/style.css" />
       <link rel="stylesheet" href="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>css/style-xlarge.css" />
    </noscript>
-   <?php wp_head(); ?>
+   <?php
 
-   <?php if( !( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ) ){ ?>
+   wp_head();
+
+   if( ( $userCustomStyles = \Transit4WP\ThemeOptions::getOption( 'customStyles' ) ) !== false ){ ?>
+      <style type="text/css" rel="stylesheet">
+         <?php echo $userCustomStyles; ?>
+      </style>
+   <?php }
+
+   if( !( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ) ){ ?>
       <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
    <?php } ?>
 

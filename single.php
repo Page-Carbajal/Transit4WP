@@ -7,9 +7,15 @@ while( have_posts() ){
       get_template_part('templates/post','banner');
    } ?>
    <section id="title" class="wrapper style3 special">
-      <header class="major">
-         <h1><?php the_title(); ?></h1>
-      </header>
+      <div class="container">
+         <div class="row">
+            <div class="10u -1u">
+               <header class="major">
+                  <h1><?php the_title(); ?></h1>
+               </header>
+            </div>
+         </div>
+      </div>
    </section>
    <section id="main" class="wrapper style2 special fontSizeLarge">
       <div class="container textAlignLeft">
