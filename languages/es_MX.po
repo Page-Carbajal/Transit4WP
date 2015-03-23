@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Transit for WordPress\n"
+"POT-Creation-Date: 2015-03-23 01:06-0600\n"
+"PO-Revision-Date: 2015-03-23 01:33-0600\n"
+"Last-Translator: Iaax Page <awesome@iaaxpage.com>\n"
+"Language-Team: Iconica Marketing <contacto@iconicamarketing.com>\n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: ./\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n;_xn\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../includes/vendors\n"
+
+#: ../404.php:7
+msgid "This is not here. But we found a cute puppy!"
+msgstr "No encontramos lo que estás buscando. ¡Pero este perrito esta bien padre!"
+
+#: ../404.php:11
+msgid "This is a 404 page!"
+msgstr "¡Esta es una cochina página 404!"
+
+#: ../author.php:15
+msgid "Presenting: "
+msgstr "Te presentamos a: "
+
+#: ../author.php:26
+msgid " picture"
+msgstr " foto"
+
+#: ../author.php:31
+msgid "Author since: "
+msgstr "Escribiendo desde: "
+
+#: ../author.php:31
+msgid "F Y"
+msgstr ""
+
+#: ../author.php:41
+msgid "Facebook"
+msgstr ""
+
+#: ../author.php:49
+msgid "Twitter"
+msgstr ""
+
+#: ../author.php:57
+msgid "LinkedIn"
+msgstr ""
+
+#: ../author.php:65
+msgid "Google+"
+msgstr ""
+
+#: ../author.php:77
+msgid "My latest articles"
+msgstr "Mis últimos artículos"
+
+#: ../author.php:99 ../templates/author-feed.php:48
+msgid " Published on "
+msgstr " Publicado en "
+
+#: ../author.php:99 ../includes/classes/Semantic-UI-Comment-View.class.php:58
+#: ../templates/author-feed.php:20 ../templates/author-feed.php:48
+msgid "M d, Y"
+msgstr "d \\d\\e F \\d\\e Y"
+
+#: ../comments.php:6
+#, php-format
+msgid "%d Comment on <strong>%s</strong>"
+msgstr "%d Comentario en <strong>%s</strong>"
+
+#: ../comments.php:19
+msgid "Be <strong>BOLD</strong>, comment first!"
+msgstr "¡Te invitamos a ser el <strong>Primero</strong> en comentar!"
+
+#: ../comments.php:24
+msgid "Comments are closed."
+msgstr "Aquí no nos dejan comentar. !Pero X al cabo que ni queriamos!"
+
+#: ../includes/classes/Semantic-UI-Comment-View.class.php:28
+msgid "Reply"
+msgstr "Responder"
+
+#: ../includes/classes/Semantic-UI-Comment-View.class.php:29
+#, php-format
+msgid "Reply to %s"
+msgstr "Responder a %s"
+
+#: ../includes/classes/Semantic-UI-Comment-View.class.php:30
+msgid "Log in to Reply"
+msgstr "Inicia sesión para responder"
+
+#: ../includes/classes/Semantic-UI-Comment-View.class.php:58
+#: ../templates/index-post-entry.php:12
+msgid "On: "
+msgstr "El "
+
+#: ../includes/classes/Theme-Setup.class.php:105
+msgid "Banner Heading"
+msgstr "Título del Banner"
+
+#: ../includes/classes/Theme-Setup.class.php:106
+msgid "Banner Subtitle"
+msgstr "Subtitulo del banner"
+
+#: ../includes/classes/Theme-Setup.class.php:107
+msgid "Hero Image"
+msgstr "Imagen del Banner"
+
+#: ../includes/classes/Theme-Setup.class.php:108
+msgid "Action Text"
+msgstr "Texto del botón"
+
+#: ../includes/classes/Theme-Setup.class.php:109
+msgid "Action Link"
+msgstr "URL del botón"
+
+#: ../includes/classes/Theme-Setup.class.php:110
+msgid "Action Target"
+msgstr "Target de la ventana"
+
+#: ../includes/classes/Theme-Setup.class.php:111
+msgid "Action Class"
+msgstr "Clase CSS"
+
+#: ../includes/classes/Theme-Setup.class.php:114
+msgid "Post Banner"
+msgstr "Banner de Página"
+
+#: ../includes/classes/Theme-Setup.class.php:146
+msgid "Main Menu"
+msgstr "Menú Principal"
+
+#: ../includes/classes/Theme-Setup.class.php:147
+msgid "First Footer Menu"
+msgstr "Primera Menú del Footer"
+
+#: ../includes/classes/Theme-Setup.class.php:148
+msgid "Second Footer Menu"
+msgstr "Segunda Menú del Footer"
+
+#: ../includes/classes/Theme-Setup.class.php:149
+msgid "Third Footer Menu"
+msgstr "Tercer Ménu del Footer"
+
+#: ../includes/classes/Theme-Setup.class.php:150
+msgid "Fourth Footer Menu"
+msgstr "Cuarto Ménu del Footer"
+
+#: ../includes/classes/Theme-Setup.class.php:157
+msgid "Blog Sidebar"
+msgstr "Sidebar para el Blog"
+
+#: ../includes/classes/Theme-Setup.class.php:160
+msgid "Single Post Sidebar"
+msgstr "Sidebar para los artículos"
+
+#: ../includes/classes/Theme-Setup.class.php:164
+msgid "Footer Section"
+msgstr "Sección Footer"
+
+#: ../includes/classes/Theme-Setup.class.php:171
+msgid "Sidebar name"
+msgstr ""
+
+#: ../includes/classes/Theme-Setup.class.php:246
+msgid "Personal Facebook Profile or Page"
+msgstr "Vínculo personal de Facebook"
+
+#: ../includes/classes/Theme-Setup.class.php:247
+msgid "Personal Twitter Account"
+msgstr "Vínculo personal de Twitter"
+
+#: ../includes/classes/Theme-Setup.class.php:248
+msgid "Personal LinkedIn Profile or Page"
+msgstr "Vínculo personal de LinkedIn"
+
+#: ../includes/classes/Theme-Setup.class.php:249
+msgid "Personal Google Plus Profile or Page"
+msgstr "Vínculo personal de Google+"
+
+#: ../search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Resultados de búsqueda para: %s"
+
+#: ../templates/author-feed.php:15
+msgid "Writen by: "
+msgstr "Autor: "
+
+#: ../templates/author-feed.php:20
+msgid " on "
+msgstr " en "
+
+#: ../templates/author-feed.php:24
+msgid "View all posts by "
+msgstr "Ver todos los artículos de "
+
+#: ../templates/author-feed.php:30
+msgid "More awesome articles by "
+msgstr "Más artículos de "
+
+#: ../templates/index-post-entry.php:9
+msgid "By: "
+msgstr "Autor: "
+
+#: ../templates/index-post-entry.php:12
+msgid "Y M, d"
+msgstr "d \\d\\e F \\d\\e Y"
+
+#: ../templates/index-post-entry.php:22
+msgid "Read More"
+msgstr "Leer artículo"
+
+#: ../templates/index-post-entry.php:27
+msgid "Share on: "
+msgstr "Compartelo en:"
+
+#: ../templates/simple-pagination.php:6
+msgid "Previous Articles"
+msgstr "Artículos anteriores"
+
+#: ../templates/simple-pagination.php:10
+msgid "Recent Articles"
+msgstr "Artículos recientes"
+
+#~ msgid "Conditions"
+#~ msgstr "Condiciones"
+
+#~ msgid "Show Gallery"
+#~ msgstr "Mostrar Galeria"

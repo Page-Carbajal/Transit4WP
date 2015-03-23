@@ -68,6 +68,17 @@ class ThemeSetup{
       self::registerMenus();
       //Register Sidebars
       self::registerSidebars();
+      //Load Text Domain
+      self::loadTextDomain();
+   }
+
+   public static function loadTextDomain(){
+      $path = get_stylesheet_directory() . '/languages';
+      if ( !file_exists( $path . '/transit4wp-en_US.mo' ) ){
+         $path = get_template_directory() . '/languages';
+      }
+
+      load_theme_textdomain( 'transit4wp', $path );
    }
 
    public static function registerFilters(){

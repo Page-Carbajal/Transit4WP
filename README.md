@@ -25,7 +25,8 @@ This theme requires
         4. author.php + Semantic UI Card view styles
         5. Paging. because you have to have it. :D 
         6. Load Blog Header Image from Theme Options
-        7. Include Basic Theme Options **(current)**
+        7. Include Basic Theme Options 
+        8. Text domain registration **(current)**
     2. Enhance Scripts and Styles and Internationalization
     3. Enhancements to pass [WordPress' Theme Unit Test](https://codex.wordpress.org/Theme_Unit_Test)
     4. Integration of Ninja Forms and Contact Form 7
