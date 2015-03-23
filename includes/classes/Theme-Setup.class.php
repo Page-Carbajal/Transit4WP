@@ -114,7 +114,10 @@ class ThemeSetup{
 
    public static function registerSidebars(){
       //Register Blog Sidebar
-      self::registerWPSidebar( array( 'id' => 'transit4wp_sidebar', 'name' => 'Blog Sidebar', 'class' => 'blogSidebar' ) );
+      self::registerWPSidebar( array( 'id' => 'transit4wp_sidebar', 'name' => __( 'Blog Sidebar', 'transit4wp' ), 'class' => 'blogSidebar' ) );
+
+      //Register Single Post Sidebar
+      self::registerWPSidebar( array( 'id' => 'transit4wp_sidebar_single', 'name' => __( 'Single Post Sidebar', 'transit4wp' ), 'class' => 'singleSidebar' ) );
 
       //Register Footer Sections
       foreach( range(1, 4) as $index ){

@@ -28,7 +28,7 @@ get_header();
                   <div class="content">
                      <h2 class="header"><?php echo $authordata->data->display_name; ?></h2>
                      <div class="meta">
-                        <span class="date"><?php echo __( 'Author since: ', 'transit4wp' ), Date( __( 'MM Y', 'transit4wp' ), strtotime( $authordata->data->user_registered ) ); ?></span>
+                        <span class="date"><?php echo __( 'Author since: ', 'transit4wp' ), Date( __( 'F Y', 'transit4wp' ), strtotime( $authordata->data->user_registered ) ); ?></span>
                      </div>
                      <div class="description">
                         <?php echo $authorBio ?>

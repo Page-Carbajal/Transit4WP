@@ -11,9 +11,24 @@ while( have_posts() ){
          <h1><?php the_title(); ?></h1>
       </header>
    </section>
-   <section id="main" class="wrapper style1 special">
-      <div class="container">
-         <?php the_content(); ?>
+   <section id="main" class="wrapper style2 special fontSizeLarge">
+      <div class="container textAlignLeft">
+         <?php if( \Transit4WP\ThemeOptions::getOption('showBlogSidebar') == 'on' ) { ?>
+            <div class="row">
+               <div class="7u 12u$(medium)">
+                  <?php the_content(); ?>
+               </div>
+               <div class="5u 12u$(medium)">
+                  <?php get_sidebar( 'single' ); ?>
+               </div>
+            </div>
+         <?php } else { ?>
+            <div class="row">
+               <div class="10u -1u 12u$(medium)">
+                  <?php the_content(); ?>
+               </div>
+            </div>
+         <?php } ?>
       </div>
    </section>
 
