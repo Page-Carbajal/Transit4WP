@@ -15,8 +15,24 @@
 
    </div>
    <div class="8u 12u$(medium)">
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+         <h2 class="ui blue header">
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            <div class="sub header fontSizeSmall">
+               <strong><?php _e( 'Categories: ', 'transit4wp' ); ?></strong>
+               <?php
+               foreach( wp_get_post_categories( $post->ID ) as $c ){
+                  $category = get_category( $c );
+                  $category->ID = $category->term_id;
+                  $category->permalink = get_category_link( $category->term_id );
+                  printf( '<span><a href="%s">%s</a> </span>&nbsp;', $category->permalink, $category->name );
+               }
+               ?>
+            </div>
+         </h2>
+
       <?php the_excerpt(); ?>
+
       <div class="ui inverted blue menu">
          <a class="header item" href="<?php the_permalink(); ?>">
             <?php _e( 'Read More', 'transit4wp' ); ?>

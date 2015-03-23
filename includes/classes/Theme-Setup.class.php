@@ -68,6 +68,17 @@ class ThemeSetup{
       self::registerMenus();
       //Register Sidebars
       self::registerSidebars();
+      //Load Text Domain
+      self::loadTextDomain();
+   }
+
+   public static function loadTextDomain(){
+      $path = get_stylesheet_directory() . '/languages';
+      if ( !file_exists( $path . '/transit4wp-en_US.mo' ) ){
+         $path = get_template_directory() . '/languages';
+      }
+
+      load_theme_textdomain( 'transit4wp', $path );
    }
 
    public static function registerFilters(){
@@ -177,6 +188,7 @@ class ThemeSetup{
       wp_register_style( 'semantic-ui-card', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
       wp_register_style( 'semantic-ui-comment', sprintf( $mediaPath, 'semantic-ui/comment.min.css' ) );
       wp_register_style( 'semantic-ui-feed', sprintf( $mediaPath, 'semantic-ui/feed.min.css' ) );
+      wp_register_style( 'semantic-ui-header', sprintf( $mediaPath, 'semantic-ui/header.min.css' ) );
       wp_register_style( 'semantic-ui-icon', sprintf( $mediaPath, 'semantic-ui/icon.min.css' ) );
       wp_register_style( 'semantic-ui-menu', sprintf( $mediaPath, 'semantic-ui/menu.min.css' ) );
       wp_register_style( 'semantic-ui-segment', sprintf( $mediaPath, 'semantic-ui/segment.min.css' ) );
@@ -186,6 +198,7 @@ class ThemeSetup{
       wp_enqueue_style( 'semantic-ui-card' );
       wp_enqueue_style( 'semantic-ui-comment' );
       wp_enqueue_style( 'semantic-ui-feed' );
+      wp_enqueue_style( 'semantic-ui-header' );
       wp_enqueue_style( 'semantic-ui-icon' );
       wp_enqueue_style( 'semantic-ui-menu' );
       wp_enqueue_style( 'semantic-ui-segment' );

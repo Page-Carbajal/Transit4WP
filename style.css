@@ -130,6 +130,10 @@ img.postFeaturedImage{
    text-align: left!important;
 }
 
+.fontSizeSmall{
+   font-size: small!important;
+}
+
 .fontSizeLarge{
    font-size: large;
 }
