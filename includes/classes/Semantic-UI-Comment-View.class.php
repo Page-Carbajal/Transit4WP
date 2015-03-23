@@ -7,19 +7,34 @@ class CommentView{
 
    }
 
-   private static function getReplyLink( $commentId = null, $postId = null ){
+   private static function getAuthorURL( $comment ){
+
+      if ( $comment->comment_user_id ){
+
+      } else {
+         echo 'http://iconicamarketing.com';
+      }
+
+   }
+
+   private static function getReplyLink( $commentId = null, $depth = 1, $postId = null ){
+      if ( !($maxDepth = get_option('thread_comments_depth')) ){
+         $maxDepth = 2;
+      }
+
       $options = array(
-         'add_below'     => 'object-class',
+         'add_below'     => 'comment',
          'respond_id'    => $commentId,
          'reply_text'    => __( 'Reply', 'transit4wp' ),
          'reply_to_text' => __( 'Reply to %s', 'transit4wp' ),
          'login_text'    => __( 'Log in to Reply', 'transit4wp' ),
-         'depth'         => 0,
+         'depth'         => $depth,
+         'max_depth'     => $maxDepth,
          'before'        => '',
          'after'         => ''
       );
 
-
+      echo get_comment_reply_link( $options, $commentId, $postId );
    }
 
    /**
@@ -38,7 +53,7 @@ class CommentView{
             <?php echo get_avatar( $comment->comment_author_email ); ?>
          </a>
          <div class="content">
-            <a class="author"><?php echo $comment->comment_author; ?></a>
+            <a class="author" href="<?php self::getAuthorURL( $comment ); ?>"><?php echo $comment->comment_author; ?></a>
             <div class="metadata">
                <div class="date"><?php echo __( 'On: ', 'transit4wp' ), Date( __( 'M d, Y', 'transit4wp' ), strtotime( $comment->comment_date ) ); ?></div>
             </div>
@@ -46,13 +61,11 @@ class CommentView{
                <?php echo $comment->comment_content; ?>
             </div>
             <div class="actions">
-               <!-- <a class="reply"  ><?php _e( 'Reply', 'transit4wp' ); ?></a> -->
-               <?php //echo self::getReplyLink( $comment->comment_ID ); ?>
-               <a href="#">Demo</a>
-               <?php echo comment_reply_link(); ?>
+               <?php self::getReplyLink( $comment->comment_ID, $depth, $comment->comment_post_ID ); ?>
             </div>
          </div>
       </div>
+      <div class="paddingTop20">&nbsp;</div>
    <?php }
       echo '<!-- End of comment -->';
    }

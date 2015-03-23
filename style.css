@@ -68,6 +68,10 @@ header.major h1, header.major h2, header.major .documentTitle {
    padding: 0;
 }
 
+.wrapper.style3 h1{
+   color: #ffffff;
+}
+
 
 /*Some extra classes for the theme*/
 .bodyContent{

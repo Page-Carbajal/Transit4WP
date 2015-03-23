@@ -1,6 +1,5 @@
-<section id="comments" class="wrapper style2 special">
-   <div class="container textAlignLeft">
-
+<section id="comments" class="wrapper style2 special textAlignLeft">
+   <div class="ui primary compact segment">
       <section class="ui comments">
          <?php if ( have_comments() ) { ?>
             <h2 class="comments-title ui dividing header">
@@ -25,8 +24,10 @@
             <p class="no-comments"><?php _e( 'Comments are closed.', 'twentyfifteen' ); ?></p>
          <?php endif; ?>
 
-         <?php comment_form(); ?>
       </section>
 
+   </div>
+   <div class="ui secondary compact segment">
+      <?php comment_form(); ?>
    </div>
 </section>
