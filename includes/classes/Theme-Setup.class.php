@@ -183,6 +183,11 @@ class ThemeSetup{
 
    public static function enqueueStyles(){
       $mediaPath = get_stylesheet_directory_uri() . '/resources/css/%s';
+      //In case child theme is being implemented
+      if( !file_exists( sprintf( $mediaPath, 'semantic-ui/card.min.css' ) ) ){
+         //TODO: this path needs to be verified per-script
+         $mediaPath = get_template_directory_uri() . '/resources/css/%s';
+      }
       wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
       wp_register_style( 'semantic-ui-button', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
       wp_register_style( 'semantic-ui-card', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
