@@ -27,7 +27,7 @@ $authorPosts = get_posts( array( 'author' => $authordata->ID, 'post__not_in' => 
          </div>
 
          <?php if( $authorPosts ){ ?>
-            <h4 class="ui header"><?php echo __( 'More awesome articles by ' ), $authordata->data->display_name; ?></h4>
+            <h4 class="ui header"><?php echo __( 'More awesome articles by ', 'transit4wp' ), $authordata->data->display_name; ?></h4>
          <?php }
 
          foreach( $authorPosts as $article ){
