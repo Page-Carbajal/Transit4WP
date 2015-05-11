@@ -21,7 +21,9 @@ if ( !empty($post->banner) && $post->banner->isValid ){
             get_template_part( 'templates/home', 'with-sidebar' );
          } else {
             get_template_part( 'templates/home', 'full-width' );
-         } ?>
+         }
+         get_template_part( 'templates/simple', 'pagination' );
+         ?>
       </div>
    </section>
 

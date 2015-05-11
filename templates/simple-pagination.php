@@ -1,3 +1,4 @@
+<!--
    <div class="paddingTop20">&nbsp;</div>
    <div class="row">
       <div class="6u -6u 12u$(medium)">
@@ -16,3 +17,13 @@
 
       </div>
    </div>
+-->
+<div class="paddingTop10 marginTop10"></div>
+<?php
+the_posts_pagination( array(
+   'mid_size'           => 5,
+   'screen_reader_text' => __( 'Navigation', 'transit4wp' ),
+   'prev_text'          => __( 'Previous page', 'transit4wp' ),
+   'next_text'          => __( 'Next page', 'transit4wp' ),
+   //'before_page_number' => '',
+) );
