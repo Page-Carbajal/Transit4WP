@@ -12,23 +12,18 @@ function popTheWindowUp(url) {
 }
 
 jQuery(document).ready(
+    //TODO: replace the @iaaxpage with a dynamic variable
     //When document is readey finds all facebook and twitter icons of the index and enables the share functionality
     function(){
-        jQuery('.right.menu > a.facebook.item').each( function(){
-            jQuery(this).click(
-                function(){
-                    popTheWindowUp( 'https://www.facebook.com/sharer/sharer.php?u=' + jQuery(this).attr( 'data-target-url' ) );
-                }
-            );
+        jQuery('.entryShareLinks > a.icon.fa-facebook').click( function(e){
+                e.preventDefault();
+                popTheWindowUp( 'https://www.facebook.com/sharer/sharer.php?u=' + jQuery(this).attr( 'data-target-url' ) );
         } );
 
-        jQuery('.right.menu > a.twitter.item').each( function(){
-            jQuery(this).click(
-                function(){
-                    var twitterButton = jQuery(this);
-                    popTheWindowUp( 'https://twitter.com/intent/tweet?text=' + twitterButton.attr( 'data-title' ) + '&url=' + twitterButton.attr( 'data-target-url' ) + '&via=@iaaxpage' );
-                }
-            );
+        jQuery('.entryShareLinks > a.icon.fa-twitter').click( function(e){
+                e.preventDefault();
+                var twitterButton = jQuery(this);
+                popTheWindowUp( 'https://twitter.com/intent/tweet?text=' + twitterButton.attr( 'data-title' ) + '&url=' + twitterButton.attr( 'data-target-url' ) + '&via=@iaaxpage' );
         } );
     }
 );
