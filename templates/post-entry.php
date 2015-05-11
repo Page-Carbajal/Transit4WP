@@ -16,16 +16,5 @@
       <?php the_content(); ?>
    </div>
    <?php
-   //gallery
-   //image
-   //aside
-   //status
-   //link
-   //quote
-   //chat
-   //image
-   //audio
-   //video
-   //
    get_template_part( 'templates/post', 'entry-links' );
    ?>

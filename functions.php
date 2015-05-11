@@ -9,35 +9,76 @@ $themeSetup = new Transit4WP\ThemeSetup();
 add_action( 'init', array( $themeSetup, 'init' ) );
 
 //Refactoring of Wordpress get_post_thumbnail for transit and other responsive themes
-function getPostThumbnailHTML( $postId = null, $size = 'post-thumbnail', $attr = '' ) {
-   $postId = ( $postId === null ) ? get_the_ID() : $postId;
-   $post = get_post( $postId );
+if( !function_exists('getPostThumbnailHTML') ){
+   function getPostThumbnailHTML( $postId = null, $size = 'post-thumbnail', $attr = '' ) {
+      $postId = ( $postId === null ) ? get_the_ID() : $postId;
+      $post = get_post( $postId );
 
-   $output = '';
-   if ( $postThumbnailId = get_post_thumbnail_id( $postId ) ) {
-      if ( in_the_loop() ){
-         update_post_thumbnail_cache();
+      $output = '';
+      if ( $postThumbnailId = get_post_thumbnail_id( $postId ) ) {
+         if ( in_the_loop() ){
+            update_post_thumbnail_cache();
+         }
+         $image = wp_get_attachment_image_src($postThumbnailId, $size, false);
+         $defaultImageAttr = array(
+            'src'	=> $image[0],
+            'class'	=> "attachment-$size",
+            'alt'	=> trim(strip_tags( get_post_meta($postThumbnailId, '_wp_attachment_image_alt', true) )),
+         );
+
+         if ( empty($defaultImageAttr['alt']) ){
+            $defaultImageAttr['alt'] = trim(strip_tags( $post->post_title ));
+         }
+
+         $attr = wp_parse_args( $attr, $defaultImageAttr );
+         $attrString = '';
+         foreach ( $attr as $name => $value ) {
+            $attrString .= " $name=" . '"' . $value . '"';
+         }
+
+         $output = sprintf( '<img %s />', $attrString );
+
       }
-      $image = wp_get_attachment_image_src($postThumbnailId, $size, false);
-      $defaultImageAttr = array(
-         'src'	=> $image[0],
-         'class'	=> "attachment-$size",
-         'alt'	=> trim(strip_tags( get_post_meta($postThumbnailId, '_wp_attachment_image_alt', true) )),
-      );
 
-      if ( empty($defaultImageAttr['alt']) ){
-         $defaultImageAttr['alt'] = trim(strip_tags( $post->post_title ));
-      }
-
-      $attr = wp_parse_args( $attr, $defaultImageAttr );
-      $attrString = '';
-      foreach ( $attr as $name => $value ) {
-         $attrString .= " $name=" . '"' . $value . '"';
-      }
-
-      $output = sprintf( '<img %s />', $attrString );
-
+      return $output;
    }
+}
 
-   return $output;
+if ( !function_exists('loadPostEntryTemplate') ){
+   function loadPostEntryTemplate(){
+      global $post;
+      switch( get_post_format() ){
+         case 'aside':
+            get_template_part( 'templates/post', 'entry-static' );
+            break;
+         case 'status':
+            get_template_part( 'templates/post', 'entry-static' );
+            break;
+         case 'quote':
+            get_template_part( 'templates/post', 'entry-static' );
+            break;
+         case 'link':
+            get_template_part( 'templates/post', 'entry-link' );
+            break;
+         case 'video':
+            get_template_part( 'templates/post', 'entry-media' );
+            break;
+         case 'image':
+            get_template_part( 'templates/post', 'entry-media' );
+            break;
+         case 'audio':
+            get_template_part( 'templates/post', 'entry-media' );
+            break;
+         case 'gallery':
+            get_template_part( 'templates/post', 'entry-media' );
+            break;
+         default:
+            if( has_post_thumbnail() ){
+               get_template_part( 'templates/post', 'entry-with-thumbnail' );
+            } else {
+               get_template_part( 'templates/post', 'entry' );
+            }
+            break;
+      }
+   }
 }
