@@ -17,9 +17,9 @@ if ( !empty($post->banner) && $post->banner->isValid ){
          <?php } ?>
          <!--Entries-->
          <?php if( \Transit4WP\ThemeOptions::getOption('showBlogSidebar') == 'on' ){
-            get_template_part( 'templates/home', 'with-sidebar' );
+            get_template_part( 'templates/listing', 'with-sidebar' );
          } else {
-            get_template_part( 'templates/home', 'full-width' );
+            get_template_part( 'templates/listing', 'full-width' );
          }
          get_template_part( 'templates/simple', 'pagination' ); ?>
       </div>

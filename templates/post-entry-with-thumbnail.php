@@ -27,7 +27,7 @@
          </div>
       </h2>
 
-      <?php the_excerpt(); ?>
+      <?php the_content(); ?>
    </div>
    <?php get_template_part( 'templates/post', 'entry-links' ); ?>
 
