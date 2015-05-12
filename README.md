@@ -26,9 +26,9 @@ This theme requires
         5. Paging. because you have to have it. :D 
         6. Load Blog Header Image from Theme Options
         7. Include Basic Theme Options 
-        8. Text domain registration and Links for Categories **(current)**
-    2. Enhance Scripts and Styles and Internationalization
-    3. Enhancements to pass [WordPress' Theme Unit Test](https://codex.wordpress.org/Theme_Unit_Test)
+        8. Text domain registration and Links for Categories 
+    2. Enhancements to pass [WordPress' Theme Unit Test](https://codex.wordpress.org/Theme_Unit_Test) **(current)**
+    3. Enhance Scripts and Styles and Internationalization
     4. Integration of Ninja Forms and Contact Form 7
     5. Plugin for short codes (Icons, Buttons, Lists, Tables)
         1. Widget-area styling
