@@ -102,7 +102,18 @@ header.major h1, header.major h2, header.major .documentTitle {
    text-decoration: none;
 }
 
-.postMeta{
+.postTitle, h2.postTitle{
+   margin: 0;
+   padding: 0;
+   display: block;
+   clear: both;
+}
+
+.postTitle, .postTitle a{
+   color: rgb(60,170,220);
+}
+
+.postMeta, div.postMeta{
    display: block;
    clear: both;
    margin: 0 0 10px;
@@ -123,6 +134,14 @@ header.major h1, header.major h2, header.major .documentTitle {
 
 img.postFeaturedImage{
    min-width: 240px!important;
+}
+
+.cancelPaddingLeft, div.cancelPaddingLeft{
+   padding-left: 0;
+}
+
+.clear{
+   clear:both; display: block; visibility: hidden;
 }
 
 /*Useful classes*/
@@ -212,8 +231,6 @@ img.postFeaturedImage{
    background-color: rgba(144, 144, 144, 0.075);
 }
 
-.page-numbers.current,
-.page-numbers.dots,
 .button.alt:active {
    background-color: rgba(144, 144, 144, 0.2);
 }
@@ -235,6 +252,8 @@ img.postFeaturedImage{
    background-color: #2c2f35;
 }
 
+.page-numbers.current,
+.page-numbers.dots,
 .button.disabled,
 .button:disabled {
    background-color: #444 !important;
