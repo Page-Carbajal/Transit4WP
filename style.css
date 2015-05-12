@@ -40,6 +40,11 @@ h5, h6 {
    line-height: 1.5em;
 }
 
+ p{
+   font-size: 16px;
+   line-height: 24px;
+}
+
 /*style.css ln 954 - 963*/
 #header .siteTitle{
    font-weight: 700;
