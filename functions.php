@@ -1,7 +1,8 @@
 <?php
 require_once( 'includes/classes/Theme-Setup.class.php' );
 require_once( 'includes/classes/Theme-Options.class.php' );
-require_once( 'includes/classes/Load-Metadata.class.php' );
+require_once( 'includes/classes/Theme-Filters.class.php' );
+require_once( 'includes/classes/Metadata.class.php' );
 require_once( 'includes/classes/Semantic-UI-Comment-View.class.php' );
 
 //Setup Theme in an elegant way with fewer hooks called.

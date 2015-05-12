@@ -1,21 +1,5 @@
 <?php
 namespace Transit4WP;
-class LoadMetadata{
-   //public $banner;
-   public function __construct(  ){
-
-   }
-
-   public static function init( $post ){
-      if ( empty( $post ) )
-         return false;
-      $post->banner = new BannerMeta( $post->ID );
-      //$post->categoryList = new PostCategories( $post->ID );
-      //Is passed by reference so it doesn't mind
-      return $post;
-   }
-}
-
 class PostCategories{
 
    public function __construct( $postId ){

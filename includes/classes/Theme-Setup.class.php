@@ -82,9 +82,8 @@ class ThemeSetup{
    }
 
    public static function registerFilters(){
-      //Load Metadata into the post object
-      add_action( 'the_post', array( 'Transit4WP\LoadMetadata', 'init' ) );
-      add_filter( 'user_contactmethods', array( __CLASS__, 'userContactMethodsFilter' ) );
+      $filters = new ThemeFilters();
+      $filters->init();
    }
 
    public static function getResourcesPath( $filePath = 'js/init.js', $echo = true ){
@@ -244,18 +243,6 @@ class ThemeSetup{
 
    public static function setWordPressFilters(){
       add_filter( 'nav_menu_link_attributes', array( 'Transit4WP\ThemeSetup', 'setNavigationLinkAttributes'), 10, 4 );
-   }
-
-
-   public static function userContactMethodsFilter(){
-
-      return array(
-         'facebook_profile'      => __( 'Personal Facebook Profile or Page', 'transit4wp' ),
-         'twitter_profile'       => __( 'Personal Twitter Account', 'transit4wp' ),
-         'linkedin_profile'      => __( 'Personal LinkedIn Profile or Page', 'transit4wp' ),
-         'googleplus_profile'    => __( 'Personal Google Plus Profile or Page', 'transit4wp' ),
-      );
-
    }
 
 }
