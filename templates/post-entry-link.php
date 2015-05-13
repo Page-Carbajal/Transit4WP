@@ -22,7 +22,7 @@ $targetURL = get_url_in_content( get_the_content() );
    <div class="row">
       <div class="12u">
          <h2 class="ui blue header">
-            <a href="<?php $targetURL; ?>"><?php the_title(); ?></a>
+            <a href="<?php echo $targetURL; ?>"><?php the_title(); ?></a>
             <div class="sub header fontSizeSmall">
                <strong><?php _e( 'Categories: ', 'transit4wp' ); ?></strong>
                <?php
