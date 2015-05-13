@@ -5,7 +5,7 @@ $targetURL = get_url_in_content( get_the_content() );
    <?php if( has_post_thumbnail() ){ ?>
       <div class="row">
          <div class="12u">
-            <a class="image fit" href="<?php echo $targetURL; ?>">
+            <a class="image fit" href="<?php echo $targetURL; ?>" target="_blank">
                <?php echo getPostThumbnailHTML( null, 'full', array( 'width'=>'100%', 'class' => '' ) ); ?>
                <!--
          <div class="meta">
@@ -22,7 +22,7 @@ $targetURL = get_url_in_content( get_the_content() );
    <div class="row">
       <div class="12u">
          <h2 class="ui blue header">
-            <a href="<?php echo $targetURL; ?>"><?php the_title(); ?></a>
+            <a href="<?php echo $targetURL; ?>" target="_blank"><?php the_title(); ?></a>
             <div class="sub header fontSizeSmall">
                <strong><?php _e( 'Categories: ', 'transit4wp' ); ?></strong>
                <?php
