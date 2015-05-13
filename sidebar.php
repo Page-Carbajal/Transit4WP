@@ -1,3 +1,2 @@
-<p>Empty</p>
 <?php
-   //dynamic_sidebar( 'transit4wp_sidebar' );
+   dynamic_sidebar( 'transit4wp_sidebar' );
