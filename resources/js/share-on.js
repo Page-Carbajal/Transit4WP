@@ -25,5 +25,7 @@ jQuery(document).ready(
                 var twitterButton = jQuery(this);
                 popTheWindowUp( 'https://twitter.com/intent/tweet?text=' + twitterButton.attr( 'data-title' ) + '&url=' + twitterButton.attr( 'data-target-url' ) + '&via=@iaaxpage' );
         } );
+
+        jQuery('.entryShareLinks > a.icon.fa-linkedin').hide('slow');
     }
 );
