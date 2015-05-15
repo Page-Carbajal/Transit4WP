@@ -1,6 +1,9 @@
-# README #
+# Transit for WordPress #
+## A responsive open-source and light-weight theme for WordPress ##
 
-The PHP-side of this project is developed and mantained by [Iaax Page](http://iaaxpage.com). When he is not fighting for the world side by side with the Avengers. #TrueStory
+## READ ME ##
+
+The PHP-side of this project is developed and mantained by [Iaax Page](http://iaaxpage.com?utm_source=github). When he is not fighting for the world side by side with the Avengers. #TrueStory
  
 This wordpress theme is based on original work by [Templated.co](http://templated.co) and its released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 
