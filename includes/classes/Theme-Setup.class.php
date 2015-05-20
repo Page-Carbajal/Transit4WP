@@ -187,25 +187,29 @@ class ThemeSetup{
          //TODO: this path needs to be verified per-script
          $mediaPath = get_template_directory_uri() . '/resources/css/%s';
       }
-      wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
-      wp_register_style( 'semantic-ui-button', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
-      wp_register_style( 'semantic-ui-card', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
-      wp_register_style( 'semantic-ui-comment', sprintf( $mediaPath, 'semantic-ui/comment.min.css' ) );
-      wp_register_style( 'semantic-ui-feed', sprintf( $mediaPath, 'semantic-ui/feed.min.css' ) );
-      wp_register_style( 'semantic-ui-header', sprintf( $mediaPath, 'semantic-ui/header.min.css' ) );
-      wp_register_style( 'semantic-ui-icon', sprintf( $mediaPath, 'semantic-ui/icon.min.css' ) );
-      wp_register_style( 'semantic-ui-menu', sprintf( $mediaPath, 'semantic-ui/menu.min.css' ) );
-      wp_register_style( 'semantic-ui-segment', sprintf( $mediaPath, 'semantic-ui/segment.min.css' ) );
+      if( !is_admin() ){
+         //TODO: Fix styles to work properly on the backend
+         wp_register_style( 'cssTransit4WP',  get_stylesheet_directory_uri().'/style.css' );
+         wp_register_style( 'semantic-ui-button', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
+         wp_register_style( 'semantic-ui-card', sprintf( $mediaPath, 'semantic-ui/card.min.css' ) );
+         wp_register_style( 'semantic-ui-comment', sprintf( $mediaPath, 'semantic-ui/comment.min.css' ) );
+         wp_register_style( 'semantic-ui-feed', sprintf( $mediaPath, 'semantic-ui/feed.min.css' ) );
+         wp_register_style( 'semantic-ui-header', sprintf( $mediaPath, 'semantic-ui/header.min.css' ) );
+         wp_register_style( 'semantic-ui-icon', sprintf( $mediaPath, 'semantic-ui/icon.min.css' ) );
+         wp_register_style( 'semantic-ui-menu', sprintf( $mediaPath, 'semantic-ui/menu.min.css' ) );
+         wp_register_style( 'semantic-ui-segment', sprintf( $mediaPath, 'semantic-ui/segment.min.css' ) );
 
-      wp_enqueue_style( 'cssTransit4WP' );
-      wp_enqueue_style( 'semantic-ui-button' );
-      wp_enqueue_style( 'semantic-ui-card' );
-      wp_enqueue_style( 'semantic-ui-comment' );
-      wp_enqueue_style( 'semantic-ui-feed' );
-      wp_enqueue_style( 'semantic-ui-header' );
-      wp_enqueue_style( 'semantic-ui-icon' );
-      wp_enqueue_style( 'semantic-ui-menu' );
-      wp_enqueue_style( 'semantic-ui-segment' );
+         wp_enqueue_style( 'cssTransit4WP' );
+         wp_enqueue_style( 'semantic-ui-button' );
+         wp_enqueue_style( 'semantic-ui-card' );
+         wp_enqueue_style( 'semantic-ui-comment' );
+         wp_enqueue_style( 'semantic-ui-feed' );
+         wp_enqueue_style( 'semantic-ui-header' );
+         wp_enqueue_style( 'semantic-ui-icon' );
+         wp_enqueue_style( 'semantic-ui-menu' );
+         wp_enqueue_style( 'semantic-ui-segment' );
+      }
+
    }
 
    public static function enqueueScripts(){

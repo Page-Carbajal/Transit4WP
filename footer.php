@@ -50,15 +50,13 @@
 </footer>
 <?php wp_footer();
 
-if( ( $customScripts = \Transit4WP\ThemeOptions::getOption( 'customScripts' ) ) !== false ){ ?>
-   <script type="text/javascript">
-      <?php echo $customScripts; ?>
-   </script>
-<?php }
-
 if( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ){ ?>
    <script id="skelInitScript" src="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>js/init.js" data-mediapath="<?php \Transit4WP\ThemeSetup::getResourcesPath(); ?>"></script>
-<?php } ?>
+<?php }
+
+if( ( $customScripts = \Transit4WP\ThemeOptions::getOption( 'customScripts' ) ) !== false ){
+   //echo $customScripts;
+} ?>
 
 </body>
 </html>
