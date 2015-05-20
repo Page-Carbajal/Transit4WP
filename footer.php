@@ -55,7 +55,7 @@ if( \Transit4WP\ThemeOptions::getOption('scriptsInFooter') ){ ?>
 <?php }
 
 if( ( $customScripts = \Transit4WP\ThemeOptions::getOption( 'customScripts' ) ) !== false ){
-   //echo $customScripts;
+   echo $customScripts;
 } ?>
 
 </body>
